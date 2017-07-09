@@ -20,16 +20,19 @@ export class CategoryPage {
   public products;
   public category_title;
 
-  constructor(public navCtrl: NavController,
+  constructor(
+    public navCtrl: NavController,
     public params: NavParams,
     public http: Http,
+    public http2: Http,
     private sanitizer: DomSanitizer
     ) {
     this.products = [];
-    this.category_title = this.params.get('title');
 
+    this.category_title = this.params.get('title');
     this.http.get(`https://api.cosmicjs.com/v1/gluten/object-type/products/search?metafield_key=category&metafield_value=${this.params.get('id')}`).subscribe((resp) => {
       let data = resp.json();
+      
       console.log(data);
       if (data.objects) {
         this.products = data.objects;
@@ -38,6 +41,7 @@ export class CategoryPage {
         this.products = [];
       }
     });
+
   }
 
   sanContent(product): any {
