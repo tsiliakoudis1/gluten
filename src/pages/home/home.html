@@ -1,14 +1,17 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar >
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Gluten</ion-title>
+    <ion-title>
+      <img  alt="logo" height="20"   src="assets/images/frifr.svg" >
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-
+<!--<button ion-button (click)="clickAd($event)">Show Interstitial</button>
+<button ion-button (click)="clickAd2($event)">Show banner</button>-->
     <ion-list>
       <ion-card *ngFor="let item of arrData" href="#" (click)="onClick($event, item)">
         <img src="http://{{item.image}}" />
@@ -18,7 +21,7 @@
           </ion-card-title>
           <h5> {{item.postedAt}}</h5>
           <p>
-            {{item.sum }}
+            {{item.description }}
           </p>
         </ion-card-content>
       </ion-card>

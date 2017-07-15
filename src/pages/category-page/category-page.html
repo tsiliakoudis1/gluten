@@ -15,7 +15,7 @@
 
 <ion-content>
   <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
- <ion-list>
+ <ion-list *ngIf="isReady">
     <ion-item *ngFor="let product of products">
       <ion-thumbnail item-start>
       <img src="http://{{product.image}}">
